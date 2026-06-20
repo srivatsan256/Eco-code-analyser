@@ -1,0 +1,12 @@
+
+backend/.env
+backend/db.sqlite3
+**/__pycache__/
+**/.DS_Store
+frontend/eco/node_modules/
+
+backend/.env
+backend/db.sqlite3
+**/__pycache__/
+**/.DS_Store
+frontend/eco/node_modules/

@@ -1,0 +1,439 @@
+/* ==========================================================================
+   home.css — Home Page Styles
+   Navbar → navbar.css  |  Footer → footer.css
+   ========================================================================== */
+
+/* ---------- Design tokens (shared across page) ---------- */
+:root {
+    --bg-page:        #0f0e13;
+    --bg-card:        rgba(30, 27, 38, 0.75);
+    --bg-card-hover:  rgba(36, 32, 46, 0.90);
+    --bg-input:       #2d2938;
+    --text-main:      #ffffff;
+    --text-muted:     rgba(255, 255, 255, 0.45);
+    --purple-accent:  #6d54cd;
+    --purple-glow:    rgba(109, 84, 205, 0.25);
+    --font-family:    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ---------- Global resets ---------- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    font-family: var(--font-family);
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   Page shell
+   ========================================================================== */
+.home-wrapper {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* ---------- Animated blurred background (same mechanic as auth page) ---------- */
+.home-bg-underlay {
+    position: fixed;
+    inset: 0;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: blur(72px);
+    opacity: 0.30;
+    transform: scale(1.12);
+    z-index: 0;
+    transition: background-image 0.7s ease-in-out;
+    pointer-events: none;
+}
+
+/* Deep vignette so text stays readable everywhere */
+.home-bg-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    background:
+        radial-gradient(ellipse at 50% 0%,   rgba(109, 84, 205, 0.12) 0%, transparent 60%),
+        linear-gradient(to bottom, rgba(15,14,19,0.55) 0%, rgba(15,14,19,0.20) 50%, rgba(15,14,19,0.70) 100%);
+    pointer-events: none;
+}
+
+/* All sections sit above the fixed bg layers */
+.home-wrapper > *:not(.home-bg-underlay):not(.home-bg-overlay) {
+    position: relative;
+    z-index: 10;
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 160px 8% 100px;
+}
+
+.hero-container {
+    max-width: 760px;
+}
+
+/* Badge */
+.badge {
+    background: rgba(109, 84, 205, 0.18);
+    border: 1px solid rgba(109, 84, 205, 0.35);
+    color: #b9adf0;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    display: inline-block;
+    margin-bottom: 28px;
+    letter-spacing: 0.3px;
+}
+
+.hero-section h1 {
+    font-size: 58px;
+    font-weight: 400;
+    line-height: 1.18;
+    margin-bottom: 24px;
+    letter-spacing: -1.5px;
+    color: #ffffff;
+}
+
+.hero-section p {
+    color: var(--text-muted);
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 44px;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* CTA row */
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 48px;
+}
+
+.btn-cta {
+    background: linear-gradient(135deg, #7c64d8, #5c43bc);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: opacity 0.2s, transform 0.15s;
+    box-shadow: 0 6px 24px rgba(109, 84, 205, 0.35);
+}
+
+.btn-cta:hover {
+    opacity: 0.88;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 400;
+    transition: background 0.2s, transform 0.15s;
+    backdrop-filter: blur(8px);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.11);
+    transform: translateY(-2px);
+}
+
+.large {
+    padding: 14px 30px;
+    font-size: 15px;
+}
+
+/* Carousel dots — same as auth page */
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.dot {
+    height: 4px;
+    width: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    transition: all 0.35s ease;
+    display: inline-block;
+}
+
+.dot.active {
+    background: rgba(255, 255, 255, 0.85);
+    width: 36px;
+}
+
+/* ==========================================================================
+   Features Section
+   ========================================================================== */
+.features-section {
+    padding: 100px 8%;
+    background: rgba(10, 9, 14, 0.45);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 64px;
+}
+
+.section-header h2 {
+    font-size: 38px;
+    font-weight: 400;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+}
+
+.section-header p {
+    color: var(--text-muted);
+    font-size: 16px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1160px;
+    margin: 0 auto;
+}
+
+/* Glassmorphism feature card — matches auth card aesthetic */
+.feature-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    padding: 36px;
+    border-radius: 16px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease,
+                box-shadow 0.22s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(109, 84, 205, 0.30);
+    background: var(--bg-card-hover);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(109, 84, 205, 0.12);
+}
+
+.feature-icon {
+    font-size: 30px;
+    margin-bottom: 18px;
+    display: block;
+}
+
+.feature-card h3 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.feature-card p {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 140px 5% 80px;
+    }
+
+    .hero-section h1 {
+        font-size: 38px;
+        letter-spacing: -0.8px;
+    }
+
+    .hero-section p {
+        font-size: 15px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .features-section {
+        padding: 64px 5%;
+    }
+
+    .section-header h2 {
+        font-size: 28px;
+    }
+}
+
+/* ---------- Statistics Section ---------- */
+.stats-section {
+    padding: 60px 8%;
+    background: rgba(15, 14, 19, 0.3);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    max-width: 1160px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.stat-card {
+    padding: 20px;
+}
+
+.stat-number {
+    font-size: 48px;
+    font-weight: 700;
+    color: #b9adf0;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #b9adf0, #7c64d8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.stat-label {
+    color: var(--text-muted);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ---------- How It Works Section ---------- */
+.how-it-works-section {
+    padding: 100px 8%;
+    background: rgba(10, 9, 14, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1160px;
+    margin: 0 auto;
+}
+
+.step-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 40px 30px;
+    border-radius: 16px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.22s ease;
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+}
+
+.step-badge {
+    display: inline-block;
+    background: var(--purple-accent);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.step-card h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.step-card p {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* ---------- Why EcoCode Section ---------- */
+.why-ecocode-section {
+    padding: 100px 8%;
+    background: linear-gradient(to bottom, rgba(10, 9, 14, 0.6), rgba(15, 14, 19, 0.8));
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.why-ecocode-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.why-ecocode-container h2 {
+    font-size: 38px;
+    margin-bottom: 24px;
+    font-weight: 400;
+}
+
+.why-ecocode-container p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text-muted);
+}
+
+/* ---------- CTA Section ---------- */
+.cta-section {
+    padding: 120px 8%;
+    background: radial-gradient(circle at 50% 50%, rgba(109, 84, 205, 0.15) 0%, transparent 60%);
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cta-container h2 {
+    font-size: 42px;
+    margin-bottom: 16px;
+    font-weight: 400;
+}
+
+.cta-container p {
+    font-size: 18px;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+}

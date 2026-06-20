@@ -1,0 +1,139 @@
+/* ==========================================================================
+   footer.css — Page Footer
+   ========================================================================== */
+
+.footer {
+    position: relative;
+    z-index: 10;
+    padding: 64px 8% 32px 8%;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    background: rgba(10, 9, 14, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+/* ---------- Top row: brand + columns ---------- */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 48px;
+    max-width: 1200px;
+    margin: 0 auto 48px auto;
+    flex-wrap: wrap;
+}
+
+/* Brand block */
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-logo {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #ffffff;
+}
+
+.footer-tagline {
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 13px;
+    letter-spacing: 0.3px;
+}
+
+/* Nav columns */
+.footer-columns {
+    display: flex;
+    gap: 56px;
+    flex-wrap: wrap;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-col h4 {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
+    margin-bottom: 4px;
+}
+
+.footer-col a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.footer-col a:hover {
+    color: #ffffff;
+}
+
+/* ---------- Bottom strip ---------- */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.footer-bottom p {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 13px;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-socials a {
+    color: rgba(255, 255, 255, 0.35);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s, transform 0.15s;
+}
+
+.footer-socials a:hover {
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+    .footer {
+        padding: 48px 5% 28px 5%;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 36px;
+    }
+
+    .footer-columns {
+        gap: 36px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .footer-socials {
+        justify-content: center;
+    }
+}

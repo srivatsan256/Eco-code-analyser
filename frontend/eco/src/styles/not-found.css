@@ -1,0 +1,39 @@
+/* ==========================================================================
+   not-found.css
+   ========================================================================== */
+
+.not-found-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.not-found-content {
+    max-width: 500px;
+}
+
+.not-found-content h1 {
+    font-size: 120px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #7c64d8, #5c43bc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.not-found-content h2 {
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 16px;
+    color: #fff;
+}
+
+.not-found-content p {
+    color: var(--text-muted);
+    font-size: 16px;
+    margin-bottom: 32px;
+}

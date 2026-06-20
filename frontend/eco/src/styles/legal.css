@@ -1,0 +1,78 @@
+/* ==========================================================================
+   legal.css
+   ========================================================================== */
+
+.page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.legal-container {
+    flex: 1;
+    max-width: 800px;
+    margin: 120px auto 80px auto;
+    padding: 40px;
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+.legal-container h1 {
+    font-size: 36px;
+    font-weight: 400;
+    margin-bottom: 24px;
+    color: #fff;
+    letter-spacing: -0.5px;
+}
+
+.legal-container h2 {
+    font-size: 24px;
+    font-weight: 400;
+    margin-top: 32px;
+    margin-bottom: 16px;
+    color: #fff;
+}
+
+.legal-container p {
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+/* Contact Form styles */
+.contact-form {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contact-form .input-group input,
+.contact-form .input-group textarea {
+    width: 100%;
+    background-color: var(--bg-input);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 15px 16px;
+    border-radius: 10px;
+    color: var(--text-main);
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+    font-family: inherit;
+}
+
+.contact-form .input-group input:focus,
+.contact-form .input-group textarea:focus {
+    border-color: rgba(109, 84, 205, 0.5);
+}
+
+@media (max-width: 768px) {
+    .legal-container {
+        margin: 100px 5% 40px 5%;
+        padding: 24px;
+    }
+}

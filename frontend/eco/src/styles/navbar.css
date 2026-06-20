@@ -1,0 +1,135 @@
+/* ==========================================================================
+   navbar.css — Glassmorphism Navigation Bar
+   ========================================================================== */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 8%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    background: rgba(15, 14, 19, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    transition: background 0.35s ease, padding 0.35s ease, border-color 0.35s ease;
+}
+
+/* Slightly more opaque when user scrolls */
+.navbar--scrolled {
+    background: rgba(15, 14, 19, 0.75);
+    padding: 16px 8%;
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ---------- Logo ---------- */
+.nav-logo {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.nav-logo:hover {
+    opacity: 0.8;
+}
+
+/* ---------- Centre nav links ---------- */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 36px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.55);
+    text-decoration: none;
+    font-size: 14.5px;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+    transition: color 0.2s;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: rgba(109, 84, 205, 0.8);
+    transition: width 0.25s ease;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* ---------- Auth buttons ---------- */
+.nav-auth {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.btn-login {
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    font-size: 14.5px;
+    font-weight: 400;
+    transition: color 0.2s;
+}
+
+.btn-login:hover {
+    color: #ffffff;
+}
+
+.btn-cta {
+    background: linear-gradient(135deg, #7c64d8, #5c43bc);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 9px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    transition: opacity 0.2s, transform 0.15s;
+    box-shadow: 0 4px 20px rgba(109, 84, 205, 0.3);
+}
+
+.btn-cta:hover {
+    opacity: 0.88;
+    transform: translateY(-1px);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 16px 5%;
+    }
+
+    .navbar--scrolled {
+        padding: 14px 5%;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-auth {
+        gap: 12px;
+    }
+}

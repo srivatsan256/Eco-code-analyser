@@ -1,0 +1,62 @@
+/* ==========================================================================
+   history.css
+   ========================================================================== */
+
+.history-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.history-list {
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    overflow: hidden;
+}
+
+.history-header-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    padding: 20px 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+}
+
+.history-item {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background 0.2s;
+}
+
+.history-item:last-child {
+    border-bottom: none;
+}
+
+.history-item:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.history-repo {
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.history-text {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.history-score {
+    font-size: 16px;
+    font-weight: 600;
+}
