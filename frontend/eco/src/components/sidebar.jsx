@@ -22,7 +22,7 @@ const Sidebar = () => {
   return (
     <aside className="sidebar">
       <div className="sidebar-header">
-        <Link to="/dashboard" className="sidebar-logo">AMU</Link>
+        <Link to="/dashboard" className="sidebar-logo">EcoCode</Link>
       </div>
 
       <nav className="sidebar-nav">
